@@ -11,7 +11,6 @@ def filter_by_state(operations: list[dict], state: str = "EXECUTED") -> list[dic
 def sort_by_date(operations: list[dict], reverse: bool = True) -> list[dict]:
     """
     Сортирует список операций по дате.
-
     :параметр operations: Список словарей с данными о банковских операциях.
     :параметр reverse: Если True, сортировка по убыванию (по умолчанию). Если False, по возрастанию.
     :return: Отсортированный список словарей.
