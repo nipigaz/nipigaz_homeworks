@@ -7,7 +7,7 @@
 
 ## Установка
 1. Скачайте или клонируйте проект:
-##   git clone https://github.com/nipigaz/nipigaz_homeworks/pull/3
+##   git clone https://github.com/nipigaz/nipigaz_homeworks/pull/2
 
 ## Примеры данных
 Модуль включает два набора данных для тестирования:
