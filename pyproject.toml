@@ -9,6 +9,10 @@ readme = "README.md"
 python = "^3.12"
 requests = "^2.32.3"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+
 [tool.black]
 line-length = 120
 
