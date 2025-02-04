@@ -1,4 +1,5 @@
 from typing import List, Dict
+from datetime import datetime
 
 
 def filter_by_state(operations: List[Dict], state: str = "EXECUTED") -> List[Dict]:
@@ -18,7 +19,14 @@ def sort_by_date(operations: List[Dict], reverse: bool = True) -> List[Dict]:
     :param reverse: Если True, сортировка по убыванию (по умолчанию). Если False — по возрастанию.
     :return: Отсортированный список словарей.
     """
-    return sorted(operations, key=lambda x: x["date"], reverse=reverse)
+    try:
+        return sorted(
+            operations,
+            key=lambda x: datetime.fromisoformat(x["date"]),
+            reverse=reverse
+        )
+    except (ValueError, KeyError):
+        raise ValueError("Некорректный формат даты в одной из операций.")
 
 
 # Примеры входных данных
@@ -38,23 +46,23 @@ data_date = [
 
 
 # Примеры использования
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # Фильтрация по "EXECUTED" (используется data_state)
-    executed_operations = filter_by_state(data_state, state="EXECUTED")
-    print("Отфильтрованные операции (EXECUTED):")
-    print(executed_operations)
+    # executed_operations = filter_by_state(data_state, state="EXECUTED")
+    # print("Отфильтрованные операции (EXECUTED):")
+    # print(executed_operations)
 
     # Фильтрация по "CANCELED" (используется data_state)
-    canceled_operations = filter_by_state(data_state, state="CANCELED")
-    print("Отфильтрованные операции (CANCELED):")
-    print(canceled_operations)
+    # canceled_operations = filter_by_state(data_state, state="CANCELED")
+    # print("Отфильтрованные операции (CANCELED):")
+    # print(canceled_operations)
 
     # Сортировка по убыванию (используется data_date)
-    sorted_desc = sort_by_date(data_date, reverse=True)
-    print("\nОтсортированные операции (по убыванию):")
-    print(sorted_desc)
+    # sorted_desc = sort_by_date(data_date, reverse=True)
+    # print("\nОтсортированные операции (по убыванию):")
+    # print(sorted_desc)
 
     # Сортировка по возрастанию (используется data_date)
-    sorted_asc = sort_by_date(data_date, reverse=False)
-    print("\nОтсортированные операции (по возрастанию):")
-    print(sorted_asc)
+    # sorted_asc = sort_by_date(data_date, reverse=False)
+    # print("\nОтсортированные операции (по возрастанию):")
+    # print(sorted_asc)
