@@ -1,4 +1,5 @@
 import pytest
+
 from src.decorators import log
 
 
@@ -37,7 +38,7 @@ def test_log_to_file_ok(tmp_path: pytest.TempPathFactory) -> None:
         return a * b
 
     assert multiply(3, 4) == 12
-    content = log_file.read_text()
+    content = log_file.read_text(encoding="utf-8")
     assert content == "multiply ok\n"
 
 
@@ -52,7 +53,7 @@ def test_log_to_file_error(tmp_path: pytest.TempPathFactory) -> None:
     with pytest.raises(TypeError):
         raise_error()
 
-    content = log_file.read_text()
+    content = log_file.read_text(encoding="utf-8")
     assert "raise_error error: TypeError. Inputs: (), {}\n" in content
 
 
