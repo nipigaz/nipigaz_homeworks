@@ -43,26 +43,3 @@ data_date = [
     {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
     {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
 ]
-
-
-# Примеры использования
-# if __name__ == "__main__":
-    # Фильтрация по "EXECUTED" (используется data_state)
-    # executed_operations = filter_by_state(data_state, state="EXECUTED")
-    # print("Отфильтрованные операции (EXECUTED):")
-    # print(executed_operations)
-
-    # Фильтрация по "CANCELED" (используется data_state)
-    # canceled_operations = filter_by_state(data_state, state="CANCELED")
-    # print("Отфильтрованные операции (CANCELED):")
-    # print(canceled_operations)
-
-    # Сортировка по убыванию (используется data_date)
-    # sorted_desc = sort_by_date(data_date, reverse=True)
-    # print("\nОтсортированные операции (по убыванию):")
-    # print(sorted_desc)
-
-    # Сортировка по возрастанию (используется data_date)
-    # sorted_asc = sort_by_date(data_date, reverse=False)
-    # print("\nОтсортированные операции (по возрастанию):")
-    # print(sorted_asc)
