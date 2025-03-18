@@ -9,10 +9,25 @@ readme = "README.md"
 python = "^3.12"
 requests = "^2.32.3"
 python-dotenv = "^1.0.1"
+pandas = "^2.2.3"
+flake8 = "^7.1.2"
+black = "^25.1.0"
+isort = "^6.0.1"
+mypy = "^1.15.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
+
+[tool.isort]
+profile = "black"  # Совместимость с Black
+line_length = 120  # Максимальная длина строки
+multi_line_output = 3  # Стиль многострочных импортов
+include_trailing_comma = true  # Добавлять запятую после последнего импорта
+force_grid_wrap = 0  # Принудительный перенос импортов на новую строку
+known_third_party = ["pandas", "numpy"]  # Список сторонних библиотек
+known_first_party = ["myproject"]  # Локальные модули
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"  # Порядок секций
 
 [tool.black]
 line-length = 120
