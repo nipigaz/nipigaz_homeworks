@@ -15,7 +15,6 @@ pandas = {version = "^2.2.3", extras = ["excel"]}
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
 
-
 [tool.poetry.group.lint.dependencies]
 flake8 = "^7.1.2"
 black = "^25.1.0"
@@ -49,14 +48,18 @@ exclude = '''
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[flake8]
+[tool.flake8]
 max-line-length = 120
 show-source = true
-extend-ignore = E203,E701
-exclude =
-    data,
-    htmlcov,
-    venv,
-    .venv,
-    .git,
-    __pycache__
+extend-ignore = "E203, E701, W503"
+exclude = [
+    "data",
+    "htmlcov",
+    "venv",
+    ".venv",
+    ".git",
+    "__pycache__",
+    "*.pyc",
+    "*.pyo",
+    "migrations"
+]
